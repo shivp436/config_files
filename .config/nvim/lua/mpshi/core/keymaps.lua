@@ -69,3 +69,25 @@ keymap.set("t", "<C-h>", "<C-\\><C-N><C-w>h")
 keymap.set("t", "<C-j>", "<C-\\><C-N><C-w>j")
 keymap.set("t", "<C-k>", "<C-\\><C-N><C-w>k")
 keymap.set("t", "<C-l>", "<C-\\><C-N><C-w>l")
+
+-- Better terminal resizing
+keymap.set("t", "<C-Up>", "<C-\\><C-N>:resize -2<CR>", { noremap = true })
+keymap.set("t", "<C-Down>", "<C-\\><C-N>:resize +2<CR>", { noremap = true })
+keymap.set("t", "<C-Left>", "<C-\\><C-N>:vertical resize -2<CR>", { noremap = true })
+keymap.set("t", "<C-Right>", "<C-\\><C-N>:vertical resize +2<CR>", { noremap = true })
+
+-- ThePrimeagen Keymaps --
+vim.keymap.set("n", "J", "mzJ`z") -- Join lines without spaces
+vim.keymap.set("n", "Y", "y$") -- Yank to end of line
+vim.keymap.set("n", "n", "nzzzv") -- Center next search result
+vim.keymap.set("n", "N", "Nzzzv") -- Center previous search result
+vim.keymap.set("n", "<C-d>", "<C-d>zz") -- Move down half screen
+vim.keymap.set("n", "<C-u>", "<C-u>zz") -- Move up half screen
+vim.keymap.set("x", "<leader>p", [["_dP]]) -- Paste over visual selection
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]]) -- Copy to clipboard
+vim.keymap.set("n", "<leader>Y", [["+Y]]) -- Copy to clipboard
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]]) -- Delete to blackhole register
+vim.keymap.set({ "n", "v" }, "<leader>D", [["_D]]) -- Delete to blackhole register
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- Search and replace word under cursor
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true }) -- Make file executable
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>") -- Open tmux sessionizer
